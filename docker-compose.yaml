@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  etcd:
+    image: 'bitnami/etcd:3.4.14'
+    container_name: etcd
+    environment:
+      - ALLOW_NONE_AUTHENTICATION=yes
+      - ETCD_ADVERTISE_CLIENT_URLS=http://etcd:2379
+    ports:
+      - 2379:2379
+      - 2380:2380
+  mysql-1:
+    container_name: nodes-1
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: my-root-pw
+      MYSQL_DATABASE: payment
+      MYSQL_USER: user1
+      MYSQL_PASSWORD: my-root-pw
+  mysql-2:
+    container_name: nodes-2
+    image: mysql:latest
+    ports:
+      - "3307:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: my-root-pw
+      MYSQL_DATABASE: payment
+      MYSQL_USER: user1
+      MYSQL_PASSWORD: my-root-pw

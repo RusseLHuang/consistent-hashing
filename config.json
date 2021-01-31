@@ -1,0 +1,14 @@
+{
+  "etcd": {
+    "host": "127.0.0.1",
+    "port": "2379"
+  },
+  "mysql": {
+    "host": "127.0.0.1",
+    "port": "3306",
+    "user": "root",
+    "password": "my-root-pw",
+    "database": "payment",
+    "charset": "utf8mb4"
+  }
+}
